@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Counter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #7d7dc9;
+      width: 350px;
+      height: 350px;
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    #count {
+      font-size: 60px;
+      margin: 40px 0;
+      transition: color 0.3s ease;
+    }
+
+    .btns {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #fff;
+      color: #333;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #4040a1;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Number Counter</h1>
+    <p id="count">0</p>
+    <div class="btns">
+      <button onclick="increment()">Increase</button>
+      <button onclick="decrement()">Decrease</button>
+    </div>
+  </div>
+
+  <script>
+    function updateColor(value, element) {
+      if (value > 0) {
+        element.style.color = "lightgreen";
+      } else if (value < 0) {
+        element.style.color = "red";
+      } else {
+        element.style.color = "white";
+      }
+    }
+
+    function increment() {
+      let count_ele = document.getElementById("count");
+      let number = parseInt(count_ele.textContent);
+      count_ele.textContent = number + 1;
+      updateColor(number + 1, count_ele);
+    }
+
+    function decrement() {
+      let count_ele = document.getElementById("count");
+      let number = parseInt(count_ele.textContent);
+      count_ele.textContent = number - 1;
+      updateColor(number - 1, count_ele);
+    }
+  </script>
+</body>
+</html>
